@@ -23,7 +23,7 @@ func term() string {
 }
 
 func keepalive() {
-	cmd := exec.Command("/bin/sh", "-c", fmt.Sprintf("nohup %v >  %v 2>&1 &", keepCMD, logPATH))
+	cmd := exec.Command("/bin/sh", "-c", fmt.Sprintf("%v >> %v", keepCMD, logPATH))
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err := cmd.Run()
